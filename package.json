@@ -1,0 +1,16 @@
+{
+  "name": "ragecode",
+  "version": "1.0.0",
+  "description": "Parse ArtRage script files.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmptable/ragecode.git"
+  },
+  "author": "Owen Trueblood",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jmptable/ragecode/issues"
+  },
+  "homepage": "https://github.com/jmptable/ragecode#readme"
+}
