@@ -120,6 +120,10 @@ class ScriptParser {
                 case 'tagClose':
                     if (this.currentTag() === token.result) {
                         this.context.pop();
+
+                        if (token.result === 'StrokeEvent') {
+                            this.instructions.push({ type: 'endStroke' });
+                        }
                     } else {
                         throw new Error(`No matching opening tag for "${token.result}"`);
                     }
