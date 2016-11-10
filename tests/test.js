@@ -1,6 +1,7 @@
+import readline from 'readline';
 import fs from 'fs';
 import path from 'path';
-import parse from '../src/index.js';
+import ScriptParser from '../src/index.js';
 import ansi from 'ansi-256-colors';
 import size from 'window-size';
 
@@ -90,7 +91,21 @@ function main() {
 
     const parsePromises = scripts.map(scriptPath => {
         console.log('parsing', scriptPath);
-        return parse(fs.createReadStream(scriptPath, { encoding: 'utf16le' }));
+
+        return new Promise((fulfill, reject) => {
+            const parser = new ScriptParser();
+            
+            // feed the script to the parser line-by-line
+
+            const scriptStream = fs.createReadStream(scriptPath, { encoding: 'utf16le' });
+            const lineByLine = readline.createInterface({ input: scriptStream });
+
+            lineByLine.on('line', line => parser.parseLine(line));
+
+            lineByLine.on('close', () => {
+                fulfill(parser.instructions);
+            });
+        });
     });
 
     Promise.all(parsePromises)

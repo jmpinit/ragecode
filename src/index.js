@@ -4,8 +4,6 @@
 // slice out <StartupFeatures> ... </StartupFeatures> (return as Buffer)
 // watch for undo and then remove previous stroke
 
-import readline from 'readline';
-
 function parseTime(timeString) {
     const [, , minutes, seconds ] = (/((\d+):)?(\d+\.\d+)/g).exec(timeString);
 
@@ -148,20 +146,4 @@ class ScriptParser {
     }
 }
 
-function parse(scriptStream) {
-    return new Promise((fulfill, reject) => {
-        const parser = new ScriptParser();
-
-        // feed the script to the parser line-by-line
-
-        const lineByLine = readline.createInterface({ input: scriptStream });
-
-        lineByLine.on('line', line => parser.parseLine(line));
-
-        lineByLine.on('close', () => {
-            fulfill(parser.instructions);
-        });
-    });
-}
-
-export default parse;
+export default ScriptParser;
