@@ -1,5 +1,6 @@
 import h from 'virtual-dom/h';
 import toHTML from 'vdom-to-html';
+import { prettyPrint } from 'html';
 
 const namespace = 'http://www.w3.org/2000/svg';
 
@@ -42,7 +43,7 @@ function toSVG(instructions) {
         },
     }, elements);
 
-    return toHTML(svg);
+    return prettyPrint(toHTML(svg), { indent_size: 2 });
 }
 
 export default toSVG;

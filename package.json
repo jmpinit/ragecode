@@ -33,9 +33,10 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
-    "webpack": "^1.13.3",
-    "webpack-node-externals": "^1.5.4",
+    "html": "^1.0.0",
     "vdom-to-html": "^2.3.0",
-    "virtual-dom": "^2.1.1"
+    "virtual-dom": "^2.1.1",
+    "webpack": "^1.13.3",
+    "webpack-node-externals": "^1.5.4"
   }
 }
