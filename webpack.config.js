@@ -8,8 +8,10 @@ module.exports = [
         externals: [nodeExternals()],
         devtool: 'source-map',
         output: {
-            path: __dirname,
+            library: 'ragecode',
             filename: 'build/lib.js',
+            libraryTarget: 'commonjs',
+            path: __dirname,
         },
         module: {
             loaders: [
