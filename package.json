@@ -4,7 +4,7 @@
   "description": "Parse ArtRage script files.",
   "main": "build/lib.js",
   "scripts": {
-    "postinstall": "tree; webpack --config ./webpack.config.js --progress",
+    "postinstall": "webpack --config ./webpack.config.js --progress",
     "build": "node node_modules/webpack/bin/webpack.js",
     "watch": "node node_modules/webpack/bin/webpack.js --watch",
     "test": "node_modules/babel-cli/bin/babel-node.js --presets es2015 tests/test.js tests/data"
